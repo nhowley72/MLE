@@ -1,21 +1,30 @@
-import pandas as pd 
-import yfinance as yf # stock data here
-import os 
-from datetime import datetime
+import yfinance as yf
+import os
+import pandas as pd
 
-tikrs = ['AAPL', 'MSFT','AMZN','GOOG','TSLA','NVDA','META']
-start_date = '2015-01-01'
-end_date = datetime.now().strftime("%Y-%m-%d")
-data_dir = "./stock_data"
+# List of stocks in the Magnificent Seven
+stocks = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA"]
 
-# use the os package to make a folder just because we can! 
-os.makedirs(data_dir, exist_ok=True)
-def download_stock_data(stock, start_date, end_date):
-    data = yf.download(stock, start=start_date, end=end_date)
-    file_path = os.path.join(data_dir, f"{stock}.csv")
-    data.to_csv(file_path)
-    print(f"Saved {stock} data to {file_path}")
+# Directory to save the CSV files
+output_dir = "stock_data"
+os.makedirs(output_dir, exist_ok=True)
 
-# Download Data for Each Stock
-for stock in tikrs:
-    download_stock_data(stock, start_date, end_date)
+# Function to clean and save the data
+def save_cleaned_data(data, stock, output_path):
+    # Reset index to make 'Date' a column
+    data.reset_index(inplace=True)
+    # Ensure the order of columns is consistent
+    data = data[["Date", "Open", "High", "Low", "Close", "Volume"]]
+    # Add the 'Ticker' column for clarity
+    data["Ticker"] = stock
+    # Save to CSV without extra indices or formatting issues
+    data.to_csv(output_path, index=False)
+    data = pd.read_csv(f'{output_path}')
+    data = data.iloc[1:]
+    data.to_csv(output_path, index=False)
+
+# Download and save data for each stock
+for stock in stocks:
+    data = yf.download(stock, start="2015-01-01", end="2025-01-01")
+    output_path = os.path.join(output_dir, f"{stock}.csv")
+    save_cleaned_data(data, stock, output_path)
