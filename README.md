@@ -6,12 +6,13 @@ The initial project should deal with Stock data as there is daily access but in 
 Initial Aim: 
 
 Phase 1:
-Notebooks for all the following: 
-Data Ingestion
-Data Preprocessing
-Model Training
-Model Evaluation
-Model Predictions 
+
+- Notebooks for all the following: 
+- Data Ingestion
+- Data Preprocessing
+- Model Training
+- Model Evaluation
+- Model Predictions 
 
 Phase 2:
 Cron Job to periodically run .py versions of the Pipeline with automated retraining.
