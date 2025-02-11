@@ -1,21 +1,24 @@
 # MLE
 Welcome to the MLE Repo! 
-The aim of this Repo is to showcase a Machine Learning Engineering Pipeline with Python Notebooks.
+The aim of this Repo is to showcase a Machine Learning Engineering Pipelines with Python.
 
-The initial project should deal with Stock data as there is daily access but in the future, there is scope for IMI projects integration for cancer research and Brazilian civil Defence collaboration.
-Initial Aim: 
+## TIKR Pipeline
+    
 
-Phase 1:
+    The initial project should deal with Stock data as there is daily access but in the future, there is scope for IMI projects integration for cancer research and Brazilian civil Defence collaboration.
+    Initial Aim: 
 
-- Notebooks for all the following: 
-- Data Ingestion
-- Data Preprocessing
-- Model Training
-- Model Evaluation
-- Model Predictions 
+    Phase 1:
 
-Phase 2:
-Cron Job to periodically run .py versions of the Pipeline with automated retraining.
+    - Notebooks for all the following: 
+    - Data Ingestion
+    - Data Preprocessing
+    - Model Training
+    - Model Evaluation
+    - Model Predictions 
 
-Phase 3: 
-Web app to host this project.
+    Phase 2:
+    Cron Job to periodically run .py versions of the Pipeline with automated retraining.
+
+    Phase 3: 
+    Web app to host this project.
